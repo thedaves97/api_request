@@ -5,8 +5,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+<<<<<<< HEAD
 @Table(name = "bevanda")
 public class Bevanda {
+=======
+@Table(name="bevanda")
+public class Bevanda
+{
+    @ManyToMany
+    @JoinTable(name = "menu", joinColumns = @JoinColumn(name = "id_locale"), inverseJoinColumns = @JoinColumn(name = "id_bevanda"))
+    private Set<Locale> locali = new HashSet<>();
+>>>>>>> ea7f51b8be7fc4d16441add1ced3433d368a1522
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

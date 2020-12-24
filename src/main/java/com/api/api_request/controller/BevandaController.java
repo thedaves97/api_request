@@ -18,6 +18,6 @@ public class BevandaController {
     @Autowired
     private BevandaRepository bevandaRepository;
 
-    @GetMapping("/cocktail")
-    public List<Bevanda> getAllCocktails() { return bevandaRepository.findAll(); }
+    @GetMapping("/bevanda")
+    public List<Bevanda> getAllBevande() { return bevandaRepository.findAll(); }
 }

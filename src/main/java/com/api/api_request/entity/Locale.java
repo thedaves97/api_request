@@ -8,12 +8,18 @@ import java.util.Set;
 @Table(name = "locale")
 public class Locale {
 
+<<<<<<< HEAD
     /**
      * @ManyToMany
      * @JoinTable(name = "menu", joinColumns = @JoinColumn(name = "id_locale"),
      *                 inverseJoinColumns = @JoinColumn(name = "id_bevanda"))
      *                 private Set<Bevanda> bevande = new HashSet<>();
      **/
+=======
+    @ManyToMany
+    @JoinTable(name = "menu", joinColumns = @JoinColumn(name = "id_locale"), inverseJoinColumns = @JoinColumn(name = "id_bevanda"))
+    private Set<Bevanda> bevande = new HashSet<>();
+>>>>>>> ea7f51b8be7fc4d16441add1ced3433d368a1522
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
