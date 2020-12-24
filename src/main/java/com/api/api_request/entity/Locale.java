@@ -5,30 +5,36 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="locale")
+@Table(name = "locale")
 public class Locale {
 
-    @ManyToMany
-    @JoinTable(name = "menu", joinColumns = @JoinColumn(name = "id_locale"), inverseJoinColumns = @JoinColumn(name = "id_bevanda"))
-    private Set<Bevanda> ruoli = new HashSet<>();
+    /**
+     * @ManyToMany
+     * @JoinTable(name = "menu", joinColumns = @JoinColumn(name = "id_locale"),
+     *                 inverseJoinColumns = @JoinColumn(name = "id_bevanda"))
+     *                 private Set<Bevanda> bevande = new HashSet<>();
+     **/
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="name")
+    @OneToMany(mappedBy = "bevanda")
+    private Set<Menu> bevanda = new HashSet<>();
+
+    @Column(name = "name")
     private String name;
 
-    @Column(name="address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name="type")
+    @Column(name = "type")
     private String type;
 
-    @Column(name="lat")
+    @Column(name = "lat")
     private double lat;
 
-    @Column(name="lon")
+    @Column(name = "lon")
     private double lon;
 
     public int getId() {

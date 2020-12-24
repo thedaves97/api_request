@@ -5,21 +5,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="bevanda")
-public class Bevanda
-{
-    @ManyToMany
-    @JoinTable(name = "menu", joinColumns = @JoinColumn(name = "id_locale"), inverseJoinColumns = @JoinColumn(name = "id_bevanda"))
-    private Set<Bevanda> bevande = new HashSet<>();
+@Table(name = "bevanda")
+public class Bevanda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="name")
+    @OneToMany(mappedBy = "locale")
+    private Set<Menu> locali = new HashSet<>();
+
+    @Column(name = "name")
     private String name;
 
-    @Column(name="type")
+    @Column(name = "type")
     private String type;
 
     public int getId() {
