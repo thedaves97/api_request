@@ -10,7 +10,7 @@ public class Bevanda
 {
     @ManyToMany
     @JoinTable(name = "menu", joinColumns = @JoinColumn(name = "id_locale"), inverseJoinColumns = @JoinColumn(name = "id_bevanda"))
-    private Set<Bevanda> bevande = new HashSet<>();
+    private Set<Locale> locali = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
