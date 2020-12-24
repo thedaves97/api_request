@@ -33,8 +33,13 @@ public class MenuController {
     }
 
     @GetMapping(value = "/menu/{idLocale}")
-    public List<Menu> getMethodName1(@PathVariable(value = "idLocale") Integer idLocale) {
+    public List<Menu> getMenuByIdLocale(@PathVariable(value = "idLocale") Integer idLocale) {
         return menuRepository.findMenuLocaleByIdLocale(idLocale);
+    }
+
+    @GetMapping(value = "/menu/bevanda/{idBevanda}")
+    public List<Menu> getLocaliByIdBevanda(@PathVariable(value = "idBevanda") Integer idBevanda) {
+        return menuRepository.findLocaliByIdBevanda(idBevanda);
     }
 
 }
