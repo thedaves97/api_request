@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
 @RequestMapping("/api/v1") // URL di chiamata
@@ -22,7 +23,7 @@ public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
 
-    @GetMapping("/menu")
+    @GetMapping("/getAllMenu")
     public List<Menu> getAllMenus() {
         return menuRepository.findAll();
     }
@@ -40,6 +41,19 @@ public class MenuController {
     @GetMapping(value = "/menu/bevanda/{idBevanda}")
     public List<Menu> getLocaliByIdBevanda(@PathVariable(value = "idBevanda") Integer idBevanda) {
         return menuRepository.findLocaliByIdBevanda(idBevanda);
+    }
+
+    @GetMapping(value = "/menu")
+    @ResponseBody
+    public List<Menu> getMenuByNameLocale(@RequestParam String nameLocale) {
+        return menuRepository.findMenuByNomeLocale(nameLocale);
+    }
+
+    @GetMapping(value = "/specificdrinktype")
+    @ResponseBody
+    public List<Menu> getBevandaByNameLocaleTypeBevanda(@RequestParam String nameLocale,
+            @RequestParam String typeBevanda) {
+        return menuRepository.findBevandaByNomeLocaleTypeBevanda(nameLocale, typeBevanda);
     }
 
 }
