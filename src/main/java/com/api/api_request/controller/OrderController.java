@@ -1,6 +1,7 @@
 package com.api.api_request.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import com.api.api_request.entity.Menu;
@@ -10,6 +11,8 @@ import com.api.api_request.repository.OrderRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,11 +46,13 @@ public class OrderController {
     }
 
     @PostMapping(value = "/saveOrder", consumes = "application/json", produces = "application/json")
-    public boolean updatePerson(@RequestBody JsonNode payload) {
+    public HashMap<String, String> addOrder(@RequestBody JsonNode payload) {
         String localID = payload.get("localID").textValue();
         String userEmail = payload.get("userEmail").textValue();
 
         int lastOrderNumber = orderRepository.findMaxOrder();
+
+        System.out.println(payload);
 
         for (JsonNode jsonNode : payload) {
 
@@ -71,7 +76,10 @@ public class OrderController {
 
         }
 
-        System.out.println(payload);
-        return true;
+        HashMap<String, String> map = new HashMap<>();
+        map.put("order", "ok");
+        map.put("payment", "ok");
+
+        return map;
     }
 }
