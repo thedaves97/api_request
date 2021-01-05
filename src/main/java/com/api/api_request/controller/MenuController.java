@@ -56,4 +56,10 @@ public class MenuController {
         return menuRepository.findBevandaByNomeLocaleTypeBevanda(nameLocale, typeBevanda);
     }
 
+    @GetMapping(value = "/menu/{idLocale}/{idBevanda}")
+    public Menu getMenuByIds(@PathVariable(value = "idLocale") Integer idLocale,
+            @PathVariable(value = "idBevanda") Integer idBevanda) {
+        return menuRepository.findMenuByIDs(idLocale, idBevanda);
+    }
+
 }

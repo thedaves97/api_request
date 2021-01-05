@@ -8,9 +8,6 @@ import java.io.Serializable;
 @Embeddable
 public class MenuKey implements Serializable {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
 
     @Column(name = "id_locale")
@@ -34,4 +31,5 @@ public class MenuKey implements Serializable {
     public void setId_locale(int id_locale) {
         this.id_locale = id_locale;
     }
+
 }

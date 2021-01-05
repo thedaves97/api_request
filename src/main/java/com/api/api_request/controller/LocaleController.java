@@ -9,13 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/locale")
 @CrossOrigin
 public class LocaleController {
 
@@ -32,6 +34,12 @@ public class LocaleController {
     @GetMapping("/locale1")
     public Optional<Locale> getBevandeByLocale() {
         return localeRepository.findById(1);
+    }
+
+    @GetMapping(value = "/getId")
+    @ResponseBody
+    public int getIdByNameLocale(@RequestParam String nameLocale) {
+        return localeRepository.findIdByNomeLocale(nameLocale);
     }
 
 }

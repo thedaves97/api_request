@@ -30,4 +30,7 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
     List<Menu> findBevandaByNomeLocaleTypeBevanda(@Param("nameLocale") String nameLocale,
             @Param("typeBevanda") String typeBevanda);
 
+    @Query("Select m from Menu m where m.locale.id = :idLocale AND m.bevanda.id = :idBevanda")
+    Menu findMenuByIDs(@Param("idLocale") int idLocale, @Param("idBevanda") int idBevanda);
+
 }

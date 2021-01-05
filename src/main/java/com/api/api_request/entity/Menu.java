@@ -1,11 +1,10 @@
 package com.api.api_request.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "menu")
-public class Menu implements Serializable {
+public class Menu {
 
     @EmbeddedId
     MenuKey id;
@@ -54,4 +53,5 @@ public class Menu implements Serializable {
     public float getPrice() {
         return price;
     }
+
 }
