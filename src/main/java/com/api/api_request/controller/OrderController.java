@@ -47,6 +47,8 @@ public class OrderController {
         String localID = payload.get("localID").textValue();
         String userEmail = payload.get("userEmail").textValue();
 
+        int lastOrderNumber = orderRepository.findMaxOrder();
+
         for (JsonNode jsonNode : payload) {
 
             JsonNode drinkID = jsonNode.get("drinkID");
@@ -55,7 +57,7 @@ public class OrderController {
 
             if (drinkID != null && drinkPrice != null && drinkNumerosity != null) {
 
-                Order order = new Order(userEmail, 5, drinkNumerosity.asInt(), new Date());
+                Order order = new Order(userEmail, lastOrderNumber + 1, drinkNumerosity.asInt(), new Date());
                 Menu menu = menuRepository.findMenuByIDs(Integer.parseInt(localID),
                         Integer.parseInt(drinkID.textValue()));
 

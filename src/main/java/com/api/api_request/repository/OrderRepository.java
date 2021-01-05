@@ -15,4 +15,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Query("Select o from Order o where o.email = :email")
     List<Order> findOrderByEmail(@Param("email") String email);
 
+    @Query("Select max(number) from Order o")
+    int findMaxOrder();
+
 }
