@@ -24,7 +24,7 @@ public class LocaleController {
     @Autowired
     private LocaleRepository localeRepository;
 
-    @GetMapping("/locale")
+    @GetMapping("/getAllLocals")
     public List<Locale> getAllLocali() {
         return localeRepository.findAll();
     }
