@@ -17,11 +17,9 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/locale")
+@RequestMapping("/api/v1")
 @CrossOrigin
 public class LocaleController {
-
-    MenuKey mk = new MenuKey();
 
     @Autowired
     private LocaleRepository localeRepository;
@@ -29,11 +27,6 @@ public class LocaleController {
     @GetMapping("/locale")
     public List<Locale> getAllLocali() {
         return localeRepository.findAll();
-    }
-
-    @GetMapping("/locale1")
-    public Optional<Locale> getBevandeByLocale() {
-        return localeRepository.findById(1);
     }
 
     @GetMapping(value = "/getId")

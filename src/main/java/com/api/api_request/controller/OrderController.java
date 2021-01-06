@@ -76,10 +76,10 @@ public class OrderController {
 
         }
 
-        HashMap<String, String> map = new HashMap<>();
-        map.put("order", "ok");
-        map.put("payment", "ok");
+        HashMap<String, String> response = new HashMap<>();
+        response.put("order", "ok");
+        response.put("payment", "ok");
 
-        return map;
+        return response;
     }
 }
