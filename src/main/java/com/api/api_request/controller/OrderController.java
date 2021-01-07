@@ -82,4 +82,9 @@ public class OrderController {
 
         return response;
     }
+    @GetMapping(value = "/getDrinkQuantityToDo/{idLocale}")
+    public int getOrderDrinkQuantity(@PathVariable(value = "idLocale") int idLocale)
+    {
+        return orderRepository.getOrderDrinkQuantity(idLocale);
+    }
 }

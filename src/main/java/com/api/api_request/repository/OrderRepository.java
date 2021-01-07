@@ -18,4 +18,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Query("Select max(number) from Order o")
     int findMaxOrder();
 
+    @Query("Select Sum(o.numerosity) from Order o where o.id_locale = :idLocale")
+    int getOrderDrinkQuantity(@Param("idLocale")int idLocale);
+
 }
