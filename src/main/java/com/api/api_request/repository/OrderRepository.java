@@ -12,13 +12,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
-    @Query("Select o from Order o where o.email = :email")
+    @Query("Select o from Order o where o.email = :email order by o.timestamp desc")
     List<Order> findOrderByEmail(@Param("email") String email);
 
     @Query("Select max(number) from Order o")
     int findMaxOrder();
 
     @Query("Select Sum(o.numerosity) from Order o where o.id_locale = :idLocale")
-    int getOrderDrinkQuantity(@Param("idLocale")int idLocale);
+    int getOrderDrinkQuantity(@Param("idLocale") int idLocale);
 
 }
