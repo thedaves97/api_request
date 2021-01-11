@@ -1,10 +1,8 @@
-package com.api.api_request.repository;
+package com.api.api_request.repository.DTA;
 
 import java.util.List;
 
-import com.api.api_request.entity.Bevanda;
-import com.api.api_request.entity.Locale;
-import com.api.api_request.entity.Menu;
+import com.api.api_request.entity.DTA.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

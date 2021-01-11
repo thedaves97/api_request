@@ -1,9 +1,9 @@
-package com.api.api_request.entity;
+package com.api.api_request.entity.DTA;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "menu")
+@Table(name = "menu", schema = "drink_take_away")
 public class Menu {
 
     @EmbeddedId

@@ -1,8 +1,8 @@
-package com.api.api_request.repository;
+package com.api.api_request.repository.DTA;
 
 import java.util.List;
 
-import com.api.api_request.entity.Order;
+import com.api.api_request.entity.DTA.Order;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -1,4 +1,4 @@
-package com.api.api_request.entity;
+package com.api.api_request.entity.DTA;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

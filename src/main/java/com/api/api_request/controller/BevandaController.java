@@ -1,8 +1,9 @@
 package com.api.api_request.controller;
 
-import com.api.api_request.entity.Bevanda;
-import com.api.api_request.repository.BevandaRepository;
+import com.api.api_request.entity.DTA.Bevanda;
+import com.api.api_request.repository.DTA.BevandaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,5 +20,7 @@ public class BevandaController {
     private BevandaRepository bevandaRepository;
 
     @GetMapping("/bevanda")
-    public List<Bevanda> getAllBevande() { return bevandaRepository.findAll(); }
+    public List<Bevanda> getAllBevande() {
+        return bevandaRepository.findAll();
+    }
 }

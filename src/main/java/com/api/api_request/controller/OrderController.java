@@ -4,13 +4,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import com.api.api_request.entity.Menu;
-import com.api.api_request.entity.Order;
-import com.api.api_request.repository.MenuRepository;
-import com.api.api_request.repository.OrderRepository;
+import com.api.api_request.entity.DTA.Menu;
+import com.api.api_request.entity.DTA.Order;
+import com.api.api_request.repository.DTA.MenuRepository;
+import com.api.api_request.repository.DTA.OrderRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -82,9 +83,9 @@ public class OrderController {
 
         return response;
     }
+
     @GetMapping(value = "/getDrinkQuantityToDo/{idLocale}")
-    public int getOrderDrinkQuantity(@PathVariable(value = "idLocale") int idLocale)
-    {
+    public int getOrderDrinkQuantity(@PathVariable(value = "idLocale") int idLocale) {
         return orderRepository.getOrderDrinkQuantity(idLocale);
     }
 }

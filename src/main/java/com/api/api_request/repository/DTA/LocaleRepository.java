@@ -1,19 +1,13 @@
-package com.api.api_request.repository;
+package com.api.api_request.repository.DTA;
 
-import java.util.List;
 import java.util.Optional;
 
-import com.api.api_request.entity.Bevanda;
-import com.api.api_request.entity.Locale;
-import com.api.api_request.entity.Menu;
-import com.api.api_request.entity.MenuKey;
+import com.api.api_request.entity.DTA.Locale;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface LocaleRepository extends JpaRepository<Locale, Integer> {

@@ -1,11 +1,11 @@
-package com.api.api_request.entity;
+package com.api.api_request.entity.DTA;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "locale")
+@Table(name = "locale", schema = "drink_take_away")
 public class Locale {
 
     /**

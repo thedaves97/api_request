@@ -1,4 +1,4 @@
-package com.api.api_request.entity;
+package com.api.api_request.entity.DTA;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "order_to_do")
+@Table(name = "order_to_do", schema = "drink_take_away")
 public class Order {
 
     @Id

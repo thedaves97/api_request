@@ -1,22 +1,23 @@
 package com.api.api_request.controller;
 
-import com.api.api_request.entity.Bevanda;
-import com.api.api_request.entity.Menu;
-import com.api.api_request.repository.BevandaRepository;
-import com.api.api_request.repository.MenuRepository;
+import com.api.api_request.entity.DTA.Bevanda;
+import com.api.api_request.entity.DTA.Menu;
+import com.api.api_request.repository.DTA.BevandaRepository;
+import com.api.api_request.repository.DTA.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @RestController
-@RequestMapping("/api/v1") // URL di chiamata
+@RequestMapping("/api/v1")
 @CrossOrigin
 public class MenuController {
 
