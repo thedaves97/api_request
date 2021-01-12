@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import com.api.api_request.dto.OrderDrinkQuantity;
 import com.api.api_request.entity.Menu;
 import com.api.api_request.entity.Order;
 import com.api.api_request.repository.MenuRepository;
@@ -82,9 +83,16 @@ public class OrderController {
 
         return response;
     }
+
     @GetMapping(value = "/getDrinkQuantityToDo/{idLocale}")
     public int getOrderDrinkQuantity(@PathVariable(value = "idLocale") int idLocale)
     {
         return orderRepository.getOrderDrinkQuantity(idLocale);
+    }
+
+    @GetMapping(value = "/getDrinkQuantityToDo")
+    public List<OrderDrinkQuantity> getOrderDrinkQuantity()
+    {
+        return orderRepository.getOrderDrinkQuantity();
     }
 }
